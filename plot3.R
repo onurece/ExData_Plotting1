@@ -18,10 +18,10 @@ data$Date <- strptime(data$Date, "%d/%m/%Y")
 data <- data[data$Date >= as.POSIXlt("2007-02-01") & data$Date <= as.POSIXlt("2007-02-02"),]
 
 # Plot line chart
-par(cex = .75, pin = c(5, 5))
+par(cex = .75)
 plot(data$Time, data$Sub_metering_1, type = "l",
      xlab = "", ylab = "Energy sub metering")
 lines(data$Time, data$Sub_metering_2, col = "red")
 lines(data$Time, data$Sub_metering_3, col = "blue")
-legend("topleft", legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),
+legend("topright", legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),
        col = c("black", "red", "blue"), lty = 1, xjust = 1, yjust = .5, cex = 1)
