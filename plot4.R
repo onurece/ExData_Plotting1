@@ -16,7 +16,8 @@ data$Date <- strptime(data$Date, "%d/%m/%Y")
 data <- data[data$Date >= as.POSIXlt("2007-02-01") & data$Date <= as.POSIXlt("2007-02-02"),]
 
 # Plot charts
-par(mfrow = c(2, 2), mar = c(4, 4, 2, 2), cex = .7)
+png("plot4.png", width=480, height=480)
+par(mfrow = c(2, 2), mar = c(6, 4, 2, 2))
 # Upper left
 plot(data$Time, data$Global_active_power, 
      type = "l",
@@ -34,8 +35,7 @@ plot(data$Time, data$Sub_metering_1, type = "l", xlab = "", ylab = "Energy sub m
 lines(data$Time, data$Sub_metering_2, col = "red")
 lines(data$Time, data$Sub_metering_3, col = "blue")
 legend("topright", legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),
-       col = c("black", "red", "blue"), bty = "n", lty = 1, xjust = 1, yjust = 1,
-       cex = .9)
+       col = c("black", "red", "blue"), bty = "n", lty = 1, cex = .9)
 
 # Lower right
 with (data, {
@@ -43,3 +43,4 @@ with (data, {
        type = "l",
        xlab = "datetime")
 })
+dev.off()

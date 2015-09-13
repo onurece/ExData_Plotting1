@@ -13,8 +13,9 @@ data$Date <- strptime(data$Date, "%d/%m/%Y")
 data <- data[data$Date >= as.POSIXlt("2007-02-01") & data$Date <= as.POSIXlt("2007-02-02"),]
 
 # Plot histogram
-par(cex = .75)
+png("plot1.png", width=480, height=480)
 hist(data$Global_active_power,
      col = "red",
      main = "Global Active Power",
      xlab = "Global Active Power (kilowatts)")
+dev.off()

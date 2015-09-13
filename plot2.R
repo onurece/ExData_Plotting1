@@ -16,8 +16,10 @@ data$Date <- strptime(data$Date, "%d/%m/%Y")
 data <- data[data$Date >= as.POSIXlt("2007-02-01") & data$Date <= as.POSIXlt("2007-02-02"),]
 
 # Plot line chart
+png("plot2.png", width=480, height=480)
 par(cex = .75)
 plot(data$Time, data$Global_active_power, 
      type = "l",
      xlab = "",
      ylab = "Global Active Power (kilowatts)")
+dev.off()
